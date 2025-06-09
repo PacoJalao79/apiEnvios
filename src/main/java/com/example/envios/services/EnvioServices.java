@@ -34,6 +34,8 @@ public class EnvioServices {
 
     public Optional<EnvioDTO> actualizar(Integer id, EnvioDTO dto) {
         return envioRepository.findById(id).map(envio -> {
+            envio.setId_envio(dto.getId_envio());
+            envio.setId_venta(id);
             envio.setDireccion(dto.getDireccion());
             envio.setEstado((dto.getEstado()));
             envio.setFecha_envio(dto.getFecha_envio());
@@ -53,7 +55,8 @@ public class EnvioServices {
     // Métodos auxiliares
     private EnvioDTO toDTO(Envio envio) {
         EnvioDTO dto = new EnvioDTO();
-        dto.setId_envio(envio.getId());
+        dto.setId_envio(envio.getId_envio());
+        dto.setId_venta(envio.getId_venta());
         dto.setDireccion(envio.getDireccion());
         dto.setEstado(envio.getEstado());
         dto.setFecha_envio(envio.getFecha_envio());
@@ -63,7 +66,9 @@ public class EnvioServices {
 
     private Envio toEntity(EnvioDTO dto) {
         Envio envio = new Envio();
-        envio.setId(dto.getId_envio());
+        envio.setId_envio(dto.getId_envio());
+        envio.setId_venta(dto.getId_venta());
+        envio.setDireccion(dto.getDireccion());
         envio.setEstado(dto.getEstado());
         envio.setFecha_envio(dto.getFecha_envio());
         envio.setFecha_entregua(dto.getFecha_entregua());

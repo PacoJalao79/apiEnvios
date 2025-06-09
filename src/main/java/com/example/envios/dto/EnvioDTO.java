@@ -10,6 +10,7 @@ import lombok.*;
 public class EnvioDTO {
 
     private Integer id_envio;
+    private Integer id_venta;
     private String direccion;
     private String estado;
     private LocalDateTime fecha_envio;

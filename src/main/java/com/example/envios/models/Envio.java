@@ -15,7 +15,7 @@ public class Envio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_envio")
-    private Integer id;
+    private Integer id_envio;
 
     private Integer id_venta;
     private String direccion;
