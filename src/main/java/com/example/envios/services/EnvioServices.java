@@ -16,8 +16,8 @@ public class EnvioServices {
     private EnvioRepository envioRepository;
 
     public EnvioDTO guardar(EnvioDTO dto) {
-        Envio cliente = toEntity(dto);
-        Envio saved = envioRepository.save(cliente);
+        Envio envio = toEntity(dto);
+        Envio saved = envioRepository.save(envio);
         return toDTO(saved);
     }
 
